@@ -1,0 +1,110 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Eventagrate Test",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/contents": {
+            "get": {
+                "tags": [
+                    "content"
+                ],
+                "summary": "Get contents",
+                "description": "Get contents. If params is empty returns all",
+                "operationId": "App\\Http\\Controllers\\ContentController::index",
+                "parameters": [
+                    {
+                        "name": "language_id",
+                        "in": "query",
+                        "description": "language_id",
+                        "required": false
+                    },
+                    {
+                        "name": "code",
+                        "in": "query",
+                        "description": "code",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return contents"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "content"
+                ],
+                "summary": "Update content",
+                "description": "Update content",
+                "operationId": "App\\Http\\Controllers\\ContentController::update",
+                "parameters": [
+                    {
+                        "name": "code",
+                        "in": "query",
+                        "description": "code",
+                        "required": true
+                    },
+                    {
+                        "name": "language_id",
+                        "in": "query",
+                        "description": "language_id",
+                        "required": true
+                    },
+                    {
+                        "name": "content",
+                        "in": "query",
+                        "description": "content",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return content"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "content"
+                ],
+                "summary": "Create new content",
+                "description": "Get all contents",
+                "operationId": "App\\Http\\Controllers\\ContentController::store",
+                "parameters": [
+                    {
+                        "name": "code",
+                        "in": "query",
+                        "description": "code",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return contents"
+                    }
+                }
+            }
+        },
+        "/api/languages": {
+            "get": {
+                "tags": [
+                    "language"
+                ],
+                "summary": "Get languages",
+                "description": "Get languages",
+                "operationId": "App\\Http\\Controllers\\LanguageController::index",
+                "responses": {
+                    "200": {
+                        "description": "Return languages"
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}

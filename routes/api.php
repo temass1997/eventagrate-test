@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ContentController;
+use App\Http\Controllers\LanguageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('/languages', [LanguageController::class, 'index']);
+
+Route::prefix('contents')->group(function () {
+    Route::get('/', [ContentController::class, 'index']);
+    Route::post('/', [ContentController::class, 'store']);
+    Route::put('/', [ContentController::class, 'update']);
 });
